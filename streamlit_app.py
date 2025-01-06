@@ -44,4 +44,4 @@ if st.button('Make Prediction'):
     st.write(f"The predicted number of COVID-19 cases for the next day is: {prediction}")
 
 # Show the app's footer
-st.markdown("### Made with ❤️ by [Your Name]")
+st.markdown("### Made with ❤️ by Manav")
