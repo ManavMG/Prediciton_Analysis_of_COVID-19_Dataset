@@ -5,7 +5,7 @@ import numpy as np
 # Load the COVID-19 dataset (Assuming it's in CSV format or already processed data)
 @st.cache
 def load_data():
-    url = "https://raw.githubusercontent.com/ManavMG/Prediction_Analysis_of_COVID-19_Dataset/main/data/covid_data.csv"
+    url = "https://raw.githubusercontent.com/ManavMG/Prediciton_Analysis_of_COVID-19_Dataset/refs/heads/main/Dataset/covid_19_india.csv"
     data = pd.read_csv(url)
     return data
 
