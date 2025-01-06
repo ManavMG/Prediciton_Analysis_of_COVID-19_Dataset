@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Load the COVID-19 dataset (Assuming it's in CSV format or already processed data)
 @st.cache
@@ -30,17 +29,13 @@ feature = st.selectbox('Select a feature to analyze:', data.columns)
 # Display a line chart for the selected feature
 st.line_chart(data[feature])
 
-# Add a plot for feature trends (e.g., daily new cases)
+# Add a plot for feature trends (e.g., daily new cases) using Streamlit's built-in charting
 if st.button('Show Trend Analysis'):
-    plt.figure(figsize=(10, 6))
     data['Date'] = pd.to_datetime(data['Date'])
-    plt.plot(data['Date'], data['New Cases'], label="New Cases")
-    plt.xlabel('Date')
-    plt.ylabel('New Cases')
-    plt.title('COVID-19 New Cases Trend')
-    plt.xticks(rotation=45)
-    plt.legend()
-    st.pyplot()
+    trend_data = data[['Date', 'New Cases']].set_index('Date')
+
+    # Display the trend using Streamlit's line chart
+    st.line_chart(trend_data['New Cases'])
 
 # Display a prediction or analysis button (if you have a prediction model)
 if st.button('Make Prediction'):
@@ -50,4 +45,3 @@ if st.button('Make Prediction'):
 
 # Show the app's footer
 st.markdown("### Made with ❤️ by [Your Name]")
-
